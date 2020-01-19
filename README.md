@@ -32,17 +32,22 @@ Example : C:\scripts
 2. Download the PowerShell script and save it to this folder, don't rename the file, just make sure the extension of the file is ".ps1"
 3. Create the task in Windows' Task Scheduler
 ```
-Easy method :
+Quick method :
 - Open Windows' Task Scheduler
-- Import the Task Scheduler template from this page
+- Right click, and select "Import", and import the XML template file from this page
+- Tick the checkbox "Run whether user is logged in or not" and "Do not store password"
+- Click OK to apply
 ```
 ```
-Difficult method :
+Manual method :
 - Open Windows' Task Scheduler
-- Create a new task manually
-- Select the PowerShell script to trigger
-- Define the execution/repeat frequency
-- Define that the script should run in the background (Hidden)
+- Right click, and select "Create a New task"
+- Set the name of your task, example 'generate_csgo_demo_name'
+- Tick the checkbox "Run whether user is logged in or not" and "Do not store password"
+- In the "Triggers" tab, add a new Trigger that would execute every day at midnight, and set the repeat frequency at every 5 or X minutes
+- In the "Actions" tab, add a new Action and define the executable as 'powershell.exe', and the arguments as following :
+       -ExecutionPolicy Bypass C:\<folder_of_the_script>\generate_csgo_demo_name.ps1
+- Click OK to apply
 ```
 4. Trigger the script manually, by doing "right click > Run" on the Task in Task Scheduler
 5. Go in your CSGO CFG Folder and verify that a file 'record.cfg' has been created and contains the 'record demo' command with the dynamic date/time of now
