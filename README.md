@@ -18,7 +18,7 @@ Once the demo is recording, you can push the 'TAB' key as much as you want, it w
 ## Important
 You have to use Windows' Task Scheduler to automate the execution of this script, so it keeps gerenating new dynamic 'record demo' command and save it in the file 'record.cfg' quite often. If you don't do that, the 'record demo' command that is in the file 'record.cfg' will not change, and you will therefore overwrite the previous demo that was recorded with this same existing name.
 
-To make easy the declaration of this PowerShell script in the Task Scheduler, you can import the Task Scheduler template present on this page. Just make sure that you save the PowerShell script in the folder 'C:\scripts', with the name 'generate_csgo_demoname.ps1', and you it will automatically create a new Task Scheduler task, and execute the script every 15 minutes, to generate new 'record demo' commands every 15 minutes.
+To make easy the declaration of this PowerShell script in the Task Scheduler, you can import the Task Scheduler template present on this page. Just make sure that you save the PowerShell script in the folder 'C:\scripts', with the original name 'generate_csgo_demoname.ps1', and it will automatically create a new Task Scheduler task, and execute the script every 15 minutes, to generate new 'record demo' commands every 15 minutes.
 
 If you play Danger Zone and want to record your matches, I suggest you update the Task Scheduler frequenty and set the script execution to every 2 or 5 minutes, since Danger Zone matches do not last long.
 
