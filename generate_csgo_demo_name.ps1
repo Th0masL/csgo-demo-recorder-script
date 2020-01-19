@@ -43,7 +43,7 @@ if ( (Test-Path "$CSGO_CFG_FOLDER") ) {
     $DATE_NOW = Get-Date -format "yyyMMdd_HHmm"
 
     # Define the demo name, as demo_YYYYMMDD_HHMM.dem
-    $DEMO_NAME = "demo_" + $DATE_NOW + ".dem"
+    $DEMO_NAME = "demo_$DATE_NOW.dem"
 
     # Define the OUTPUT file as record.cfg in the CSGO_CFG_FOLDER
     $OUTPUT_FILE = "$CSGO_CFG_FOLDER\record.cfg"
@@ -53,16 +53,22 @@ if ( (Test-Path "$CSGO_CFG_FOLDER") ) {
 
     # Save the line "record DEMO_NAME" to the OUTPUT_FILE
     Set-Content -Path "$OUTPUT_FILE" -Value "record $DEMO_NAME"
+    
+    # Wait 2 seconds before closing the program
+    Start-Sleep -s 2
 }
 # If the User ID is empty, show an error message
 elseif ( $USER_ID -eq "" ) {
     "Error - Unable to find a valid Steam User ID. Please verify that Steam is running."
+    
+    # Wait 10 seconds before closing the program
+    Start-Sleep -s 10
 }
 # If the Folder does not exist, show an error message
 else { 
     "Error - Unable to find the CSGO CFG Folder : $CSGO_CFG_FOLDER"
     "Please verify your Steam Installation Folder and your User ID"
+    
+    # Wait 10 seconds before closing the program
+    Start-Sleep -s 10
 }
-
-# Wait 2 seconds before closing the program
-Start-Sleep -s 2
