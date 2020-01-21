@@ -27,16 +27,24 @@ Also, please note that recording all your matches will create a lot of demo file
 ## Installation
 1. Create/decide a folder that will contain this script
 ```
-Example : C:\scripts
+Exemple : C:\scripts
 ```
-2. Download the PowerShell script and save it to this folder, don't rename the file, just make sure the extension of the file is ".ps1"
+2. Download the PowerShell script and the XML file, either manually or by cloning this GIT repository to the folder you just created.
+```
+You should end up with those files, in this path :
+C:\scripts\generate_csgo_demo_name\generate_csgo_demo_name.ps1
+C:\scripts\generate_csgo_demo_name\generate_csgo_demo_name.xml
+```
+
 3. Create the task in Windows' Task Scheduler
+
 ```
 Quick method :
 - Open Windows' Task Scheduler
 - Right click, and select "Import", and import the XML template file from this page
 - Tick the checkbox "Run whether user is logged in or not" and "Do not store password"
 - Click OK to apply
+NOTE : By default, the XML file contains the folder/path as suggested above (C:\scripts\generate_csgo_demo_name\generate_csgo_demo_name.ps1). If you plan to use another path, please edit the XML file with a text editor to update the path of the file "generate_csgo_demo_name.ps1", or use the manual method below to create the task.
 ```
 ```
 Manual method :
@@ -46,7 +54,7 @@ Manual method :
 - Tick the checkbox "Run whether user is logged in or not" and "Do not store password"
 - In the "Triggers" tab, add a new Trigger that would execute every day at midnight, and set the repeat frequency at every 5 or X minutes
 - In the "Actions" tab, add a new Action and define the executable as 'powershell.exe', and the arguments as following :
-       -ExecutionPolicy Bypass C:\<folder_of_the_script>\generate_csgo_demo_name.ps1
+       -ExecutionPolicy Bypass C:\<folder_of_the_script>\generate_csgo_demo_name\generate_csgo_demo_name.ps1
 - Click OK to apply
 ```
 4. Trigger the script manually, by doing "right click > Run" on the Task in Task Scheduler
